@@ -89,7 +89,7 @@ export const Hero = () => {
 
           {/* Chechi's Photo */}
           <div
-            className={`relative rounded-full overflow-hidden shadow-2xl max-w-xs mx-auto mb-12 border-8 border-primary transition-all duration-1000 delay-500 ${
+            className={`relative rounded-full overflow-hidden shadow-2xl max-w-xs mx-auto mb-12 border-8 border-primary animate-glow-pulse transition-all duration-1000 delay-500 ${
               isVisible ? "opacity-100 scale-100" : "opacity-0 scale-90"
             }`}
           >
@@ -98,6 +98,18 @@ export const Hero = () => {
               alt="Chechi's photo"
               className="w-full h-auto"
             />
+            {/* Sparkle overlay */}
+            <div className="absolute inset-0 pointer-events-none">
+              <div className="absolute top-2 right-8 animate-pulse">
+                <div className="w-3 h-3 bg-party-yellow rounded-full"></div>
+              </div>
+              <div className="absolute bottom-8 left-4 animate-pulse" style={{ animationDelay: "0.5s" }}>
+                <div className="w-2 h-2 bg-party-turquoise rounded-full"></div>
+              </div>
+              <div className="absolute top-1/2 right-4 animate-pulse" style={{ animationDelay: "1s" }}>
+                <div className="w-2 h-2 bg-party-coral rounded-full"></div>
+              </div>
+            </div>
           </div>
 
           <div

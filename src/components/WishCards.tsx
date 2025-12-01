@@ -34,11 +34,22 @@ const wishes = [
 
 export const WishCards = () => {
   return (
-    <section className="py-20 px-4 bg-muted/50">
-      <div className="max-w-6xl mx-auto">
-        <h2 className="text-5xl md:text-6xl font-display text-center mb-16 text-party-coral">
+    <section className="py-20 px-4 bg-gradient-to-b from-muted/30 via-muted/50 to-muted/30 relative overflow-hidden">
+      {/* Background decorative elements */}
+      <div className="absolute inset-0 pointer-events-none opacity-10">
+        <div className="absolute top-10 left-10 text-party-coral text-9xl font-display">18</div>
+        <div className="absolute bottom-10 right-10 text-party-turquoise text-9xl font-display">18</div>
+        <div className="absolute top-1/2 left-1/4 text-party-yellow text-7xl">🎊</div>
+        <div className="absolute top-1/3 right-1/4 text-party-purple text-7xl">🎉</div>
+      </div>
+      
+      <div className="max-w-6xl mx-auto relative z-10">
+        <h2 className="text-5xl md:text-6xl font-display text-center mb-4 text-party-coral animate-bounce-in">
           Birthday Wishes 🎁
         </h2>
+        <p className="text-2xl font-body text-center mb-16 text-party-purple animate-fade-in">
+          Special messages for an extraordinary person! ✨
+        </p>
 
         <div className="grid md:grid-cols-2 gap-8">
           {wishes.map((wish, index) => (
