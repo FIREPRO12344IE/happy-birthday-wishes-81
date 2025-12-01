@@ -68,9 +68,17 @@ export const WishCards = () => {
           <p className="text-3xl md:text-4xl font-display text-party-purple mb-4">
             Celebrate like there's no tomorrow! 🎊
           </p>
-          <p className="text-xl text-muted-foreground font-body">
+          <p className="text-xl text-muted-foreground font-body mb-6">
             You deserve all the happiness in the world!
           </p>
+          <div className="max-w-2xl mx-auto bg-gradient-to-r from-party-coral/10 via-party-turquoise/10 to-party-purple/10 rounded-3xl p-8 border-2 border-primary/20">
+            <p className="text-2xl font-display text-party-coral mb-3">
+              18 Years of Awesomeness! ✨
+            </p>
+            <p className="text-lg font-body text-foreground/70">
+              Chechi, you've grown into such an amazing person. May this milestone birthday be the beginning of your most incredible chapter yet! Here's to endless adventures, dreams coming true, and memories that will last forever! 💖
+            </p>
+          </div>
         </div>
       </div>
     </section>
