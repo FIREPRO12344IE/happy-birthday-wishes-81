@@ -1,4 +1,5 @@
 import { useEffect, useState } from "react";
+import { Sparkles } from "lucide-react";
 
 interface ConfettiPiece {
   id: number;
@@ -6,6 +7,8 @@ interface ConfettiPiece {
   delay: number;
   duration: number;
   color: string;
+  shape: 'circle' | 'square' | 'star';
+  size: number;
 }
 
 const colors = [
@@ -13,20 +16,27 @@ const colors = [
   "bg-party-yellow",
   "bg-party-turquoise",
   "bg-party-purple",
+  "bg-primary",
+  "bg-secondary",
 ];
+
+const shapes = ['circle', 'square', 'star'] as const;
 
 export const Confetti = () => {
   const [confetti, setConfetti] = useState<ConfettiPiece[]>([]);
 
   useEffect(() => {
     const pieces: ConfettiPiece[] = [];
-    for (let i = 0; i < 50; i++) {
+    // More confetti pieces!
+    for (let i = 0; i < 100; i++) {
       pieces.push({
         id: i,
         left: Math.random() * 100,
-        delay: Math.random() * 5,
-        duration: 3 + Math.random() * 4,
+        delay: Math.random() * 8,
+        duration: 4 + Math.random() * 6,
         color: colors[Math.floor(Math.random() * colors.length)],
+        shape: shapes[Math.floor(Math.random() * shapes.length)],
+        size: 8 + Math.random() * 12,
       });
     }
     setConfetti(pieces);
@@ -37,13 +47,21 @@ export const Confetti = () => {
       {confetti.map((piece) => (
         <div
           key={piece.id}
-          className={`absolute w-3 h-3 ${piece.color} animate-confetti`}
+          className={`absolute ${piece.color} animate-confetti ${
+            piece.shape === 'circle' ? 'rounded-full' : piece.shape === 'square' ? '' : ''
+          }`}
           style={{
             left: `${piece.left}%`,
+            width: piece.shape === 'star' ? 'auto' : `${piece.size}px`,
+            height: piece.shape === 'star' ? 'auto' : `${piece.size}px`,
             animationDelay: `${piece.delay}s`,
             animationDuration: `${piece.duration}s`,
           }}
-        />
+        >
+          {piece.shape === 'star' && (
+            <Sparkles className="w-4 h-4" />
+          )}
+        </div>
       ))}
     </div>
   );

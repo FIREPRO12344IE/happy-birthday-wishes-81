@@ -129,6 +129,37 @@ export default {
             opacity: "1"
           }
         },
+        "balloon-float": {
+          "0%": {
+            transform: "translateY(100vh) rotate(0deg)",
+            opacity: "0"
+          },
+          "10%": {
+            opacity: "1"
+          },
+          "100%": {
+            transform: "translateY(-150vh) rotate(360deg)",
+            opacity: "0"
+          }
+        },
+        "sparkle-pulse": {
+          "0%, 100%": {
+            opacity: "0",
+            transform: "scale(0.5) rotate(0deg)"
+          },
+          "50%": {
+            opacity: "1",
+            transform: "scale(1) rotate(180deg)"
+          }
+        },
+        "glow-pulse": {
+          "0%, 100%": {
+            boxShadow: "0 0 20px hsl(var(--party-coral) / 0.5)"
+          },
+          "50%": {
+            boxShadow: "0 0 40px hsl(var(--party-coral) / 0.8), 0 0 60px hsl(var(--party-turquoise) / 0.6)"
+          }
+        },
       },
       animation: {
         "accordion-down": "accordion-down 0.2s ease-out",
@@ -137,6 +168,9 @@ export default {
         "float": "float 3s ease-in-out infinite",
         "confetti": "confetti-fall linear forwards",
         "bounce-in": "bounce-in 0.6s cubic-bezier(0.68, -0.55, 0.265, 1.55)",
+        "balloon-float": "balloon-float linear forwards",
+        "sparkle-pulse": "sparkle-pulse ease-in-out infinite",
+        "glow-pulse": "glow-pulse 2s ease-in-out infinite",
       },
     },
   },
