@@ -1,43 +1,70 @@
-import { useEffect, useState } from "react";
+import { useEffect, useState, useRef } from "react";
 import cakeImage from "@/assets/birthday-cake.jpg";
 import chechiPhoto from "@/assets/chechi-photo.png";
-import { Gift, Cake, PartyPopper, Music, Volume2 } from "lucide-react";
+import { Gift, Cake, PartyPopper, Music, Volume2, Play } from "lucide-react";
 
 export const Hero = () => {
   const [isVisible, setIsVisible] = useState(false);
   const [isPlaying, setIsPlaying] = useState(false);
-  const [audio] = useState(new Audio('/happybirthday.mp3'));
+  const [showOverlay, setShowOverlay] = useState(true);
+  const audioRef = useRef<HTMLAudioElement | null>(null);
 
   useEffect(() => {
     setIsVisible(true);
-    
-    // Auto-play audio on load (may be blocked by browser)
-    const playAudio = async () => {
-      try {
-        audio.loop = true;
-        await audio.play();
-        setIsPlaying(true);
-      } catch (error) {
-        console.log('Auto-play blocked:', error);
-      }
-    };
-    
-    playAudio();
+    audioRef.current = new Audio('/happybirthday.mp3');
+    audioRef.current.loop = true;
 
     return () => {
-      audio.pause();
-      audio.currentTime = 0;
+      if (audioRef.current) {
+        audioRef.current.pause();
+        audioRef.current.currentTime = 0;
+      }
     };
-  }, [audio]);
+  }, []);
+
+  const startExperience = async () => {
+    setShowOverlay(false);
+    if (audioRef.current) {
+      try {
+        await audioRef.current.play();
+        setIsPlaying(true);
+      } catch (error) {
+        console.log('Audio play failed:', error);
+      }
+    }
+  };
 
   const toggleMusic = () => {
+    if (!audioRef.current) return;
     if (isPlaying) {
-      audio.pause();
+      audioRef.current.pause();
     } else {
-      audio.play();
+      audioRef.current.play();
     }
     setIsPlaying(!isPlaying);
   };
+
+  // Click-to-start overlay (required by browsers for audio)
+  if (showOverlay) {
+    return (
+      <div 
+        className="fixed inset-0 z-[100] bg-gradient-to-br from-party-purple via-party-coral to-party-turquoise flex items-center justify-center cursor-pointer"
+        onClick={startExperience}
+      >
+        <div className="text-center animate-bounce-in">
+          <h1 className="text-5xl md:text-7xl font-display text-white mb-6 drop-shadow-lg">
+            🎂 Chechi's 18th Birthday! 🎂
+          </h1>
+          <div className="bg-white/20 backdrop-blur-sm rounded-full p-8 inline-block mb-6 animate-pulse">
+            <Play className="w-16 h-16 text-white" />
+          </div>
+          <p className="text-2xl md:text-3xl font-body text-white/90">
+            Tap anywhere to start the celebration! 🎉
+          </p>
+        </div>
+      </div>
+    );
+  }
 
   return (
     <section className="relative min-h-screen flex items-center justify-center overflow-hidden bg-gradient-to-br from-background via-muted to-background px-4 py-20">
