@@ -37,8 +37,8 @@ export const WishCards = () => {
     <section className="py-20 px-4 bg-gradient-to-b from-muted/30 via-muted/50 to-muted/30 relative overflow-hidden">
       {/* Background decorative elements */}
       <div className="absolute inset-0 pointer-events-none opacity-10">
-        <div className="absolute top-10 left-10 text-party-coral text-9xl font-display">18</div>
-        <div className="absolute bottom-10 right-10 text-party-turquoise text-9xl font-display">18</div>
+        <div className="absolute top-10 left-10 text-party-coral text-9xl font-display">17</div>
+        <div className="absolute bottom-10 right-10 text-party-turquoise text-9xl font-display">17</div>
         <div className="absolute top-1/2 left-1/4 text-party-yellow text-7xl">🎊</div>
         <div className="absolute top-1/3 right-1/4 text-party-purple text-7xl">🎉</div>
       </div>
@@ -84,10 +84,10 @@ export const WishCards = () => {
           </p>
           <div className="max-w-2xl mx-auto bg-gradient-to-r from-party-coral/10 via-party-turquoise/10 to-party-purple/10 rounded-3xl p-8 border-2 border-primary/20">
             <p className="text-2xl font-display text-party-coral mb-3">
-              18 Years of Awesomeness! ✨
+              17 Years of Awesomeness! ✨
             </p>
             <p className="text-lg font-body text-foreground/70">
-              Chechi, you've grown into such an amazing person. May this milestone birthday be the beginning of your most incredible chapter yet! Here's to endless adventures, dreams coming true, and memories that will last forever! 💖
+              Chyna, you've grown into such an amazing person. May this milestone birthday be the beginning of your most incredible chapter yet! Here's to endless adventures, dreams coming true, and memories that will last forever! 💖
             </p>
           </div>
         </div>
