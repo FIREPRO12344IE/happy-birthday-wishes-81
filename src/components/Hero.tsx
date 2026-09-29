@@ -1,6 +1,6 @@
 import { useEffect, useState, useRef } from "react";
 import cakeImage from "@/assets/birthday-cake.jpg";
-import chechiPhoto from "@/assets/chechi-photo.png";
+import chynaAsset from "@/assets/chyna.png.asset.json";
 import { Gift, Cake, PartyPopper, Music, Volume2, Play } from "lucide-react";
 
 export const Hero = () => {
@@ -53,7 +53,7 @@ export const Hero = () => {
       >
         <div className="text-center animate-bounce-in">
           <h1 className="text-5xl md:text-7xl font-display text-white mb-6 drop-shadow-lg">
-            🎂 Chechi's 18th Birthday! 🎂
+            Chyna's 17th Birthday! 🎂
           </h1>
           <div className="bg-white/20 backdrop-blur-sm rounded-full p-8 inline-block mb-6 animate-pulse">
             <Play className="w-16 h-16 text-white" />
@@ -102,16 +102,16 @@ export const Hero = () => {
         >
           <h1 className="text-7xl md:text-9xl font-display mb-6 animate-bounce-in">
             <span className="text-party-coral">Happy</span>{" "}
-            <span className="text-party-turquoise">18th</span>{" "}
+            <span className="text-party-turquoise">17th</span>{" "}
             <span className="text-party-yellow">Birthday!</span>
           </h1>
           
           <h2 className="text-5xl md:text-6xl font-display mb-8 text-party-purple animate-fade-in" style={{ animationDelay: "0.2s" }}>
-            Chechi! 🎊
+            Chyna! 🎊
           </h2>
           
           <p className="text-2xl md:text-3xl font-body font-light mb-12 text-foreground/80 animate-fade-in" style={{ animationDelay: "0.4s" }}>
-            Welcome to adulthood! Wishing you the most amazing year ahead filled with joy, success & endless laughter! 🎉
+            Seventeen and shining! Wishing you the most amazing year ahead filled with joy, success & endless laughter! 🎉
           </p>
 
           {/* Chechi's Photo */}
@@ -121,8 +121,8 @@ export const Hero = () => {
             }`}
           >
             <img
-              src={chechiPhoto}
-              alt="Chechi's photo"
+              src={chynaAsset.url}
+              alt="Chyna's photo"
               className="w-full h-auto"
             />
             {/* Sparkle overlay */}
