@@ -114,7 +114,7 @@ export const Hero = () => {
             Seventeen and shining! Wishing you the most amazing year ahead filled with joy, success & endless laughter! 🎉
           </p>
 
-          {/* Chechi's Photo */}
+          {/* Chyna's Photo */}
           <div
             className={`relative rounded-full overflow-hidden shadow-2xl max-w-xs mx-auto mb-12 border-8 border-primary animate-glow-pulse transition-all duration-1000 delay-500 ${
               isVisible ? "opacity-100 scale-100" : "opacity-0 scale-90"
